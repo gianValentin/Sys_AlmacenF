@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sys_AlmacenF
+namespace Sys_AlmacenF.Forms
 {
-    public partial class Form1 : Form
+    public partial class FrmPadre : Form
     {
-        public Form1()
+        public FrmPadre()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmHome frmhomre = new FrmHome();
+            frmhomre.Show();
         }
     }
 }

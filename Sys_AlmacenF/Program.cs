@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sys_AlmacenF.Forms;
+using Sys_AlmacenF.Val;
 
 namespace Sys_AlmacenF
 {
@@ -17,7 +18,16 @@ namespace Sys_AlmacenF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            if (Conexion.iniConexion())
+            {
+                Application.Run(new FrmLogin());
+            }
+            else
+            {
+                MessageBox.Show("- Problemas al conectar con la Base de Datos\n- Verifique su conxión de Intenet \n- Si el proble persiste ponerse en contacto con el desarrollador","Error Conexión",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            
         }
     }
 }
